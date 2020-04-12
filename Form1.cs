@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,7 +49,8 @@ namespace Simon
                     mySimon.estadoSolicitado = Estados.Izquierda;
                     timer1.Start();
                     buttonLeft.BackColor = Color.Orange;
-
+                    SoundPlayer snd = new SoundPlayer(@"C:\Users\Ale\source\repos\Simon\Sonidos\4.wav");
+                    snd.Play();
                     Chequear();
 
                     return true;
@@ -60,6 +62,8 @@ namespace Simon
                     mySimon.estadoSolicitado = Estados.Derecha;
                     timer1.Start();
                     buttonRight.BackColor = Color.Green;
+                    SoundPlayer snd = new SoundPlayer(@"C:\Users\Ale\source\repos\Simon\Sonidos\3.wav");
+                    snd.Play();
                     Chequear();
                     return true;
                 }
@@ -69,6 +73,8 @@ namespace Simon
                     mySimon.estadoSolicitado = Estados.Arriba;
                     timer1.Start();
                     buttonUp.BackColor = Color.Red;
+                    SoundPlayer snd = new SoundPlayer(@"C:\Users\Ale\source\repos\Simon\Sonidos\1.wav");
+                    snd.Play();
                     Chequear();
                     return true;
                 }
@@ -78,6 +84,8 @@ namespace Simon
                     mySimon.estadoSolicitado = Estados.Abajo;
                     timer1.Start();
                     buttonDown.BackColor = Color.Yellow;
+                    SoundPlayer snd = new SoundPlayer(@"C:\Users\Ale\source\repos\Simon\Sonidos\2.wav");
+                    snd.Play();
                     Chequear();
                     return true;
                 }
@@ -125,6 +133,8 @@ namespace Simon
                     buttonDown.BackColor = Color.FromArgb(255, 255, 128);
                     buttonRight.BackColor = Color.FromArgb(128, 255, 128);
                     buttonLeft.BackColor = Color.FromArgb(255, 192, 128);
+                    SoundPlayer snd = new SoundPlayer(@"C:\Users\Ale\source\repos\Simon\Sonidos\1.wav");
+                    snd.Play();
                     timerApagador.Start();
                 }
 
@@ -134,6 +144,8 @@ namespace Simon
                     buttonDown.BackColor = Color.Yellow;
                     buttonRight.BackColor = Color.FromArgb(128, 255, 128);
                     buttonLeft.BackColor = Color.FromArgb(255, 192, 128);
+                    SoundPlayer snd = new SoundPlayer(@"C:\Users\Ale\source\repos\Simon\Sonidos\2.wav");
+                    snd.Play();
                     timerApagador.Start();
                 }
                 else if (mySimon.estados[mySimon.Mostrando] == Estados.Derecha)
@@ -142,6 +154,8 @@ namespace Simon
                     buttonDown.BackColor = Color.FromArgb(255, 255, 128);
                     buttonRight.BackColor = Color.Green;
                     buttonLeft.BackColor = Color.FromArgb(255, 192, 128);
+                    SoundPlayer snd = new SoundPlayer(@"C:\Users\Ale\source\repos\Simon\Sonidos\3.wav");
+                    snd.Play();
                     timerApagador.Start();
                 }
                 else if (mySimon.estados[mySimon.Mostrando] == Estados.Izquierda)
@@ -150,6 +164,8 @@ namespace Simon
                     buttonDown.BackColor = Color.FromArgb(255, 255, 128);
                     buttonRight.BackColor = Color.FromArgb(128, 255, 128);
                     buttonLeft.BackColor = Color.Orange;
+                    SoundPlayer snd = new SoundPlayer(@"C:\Users\Ale\source\repos\Simon\Sonidos\4.wav");
+                    snd.Play();
                     timerApagador.Start();
                 }
                 
@@ -203,6 +219,7 @@ namespace Simon
         private void button1_Click(object sender, EventArgs e)
         {
             ArmarJuego();
+            
         }
 
         private void Chequear()
