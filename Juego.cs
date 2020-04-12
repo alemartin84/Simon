@@ -14,11 +14,12 @@ namespace Simon
         public Juego()
         {
             // LE CARGO ALGO INICIAL PARA PODER PROBAR LA LISTA -- SACAR !!!
+            /*
             estados.Add(Estados.Abajo);
             estados.Add(Estados.Arriba);
             estados.Add(Estados.Derecha);
             estados.Add(Estados.Izquierda);
-
+            */
             //constructor
         }
 
@@ -26,7 +27,29 @@ namespace Simon
 
         public int Mostrando { get; set; }
 
+        public int posActual { get; set; }
+
         public Estados estadoSolicitado { get; set; }
+
+        public void Añadir()
+        {
+            Array values = Enum.GetValues(typeof(Estados));
+            Random random = new Random();
+            Estados randomBar = (Estados)values.GetValue(random.Next(values.Length));
+
+            estados.Add(randomBar);
+            posActual = 0; //<esta bien esto?
+            Mostrando = 0;
+            Ocupado = true;
+        }
+
+        public void Reiniciar()
+        {
+            estados.Clear();
+            Ocupado = false;
+            Mostrando = 0;
+            posActual = 0;
+        }
 
         
     }
