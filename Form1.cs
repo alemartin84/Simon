@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Text;
+
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -180,6 +181,7 @@ namespace Simon
                 buttonRight.BackColor = Color.FromArgb(128, 255, 128);
                 buttonLeft.BackColor = Color.FromArgb(255, 192, 128);
                 timer2.Stop();
+                
             }
 
             if (mySimon.Mostrando < mySimon.estados.Count() - 1)
@@ -203,7 +205,10 @@ namespace Simon
 
         private void ArmarJuego()
         {
+            
             mySimon.Añadir();
+            lblTotal.Text = mySimon.estados.Count().ToString();
+                        
             timer2.Start();
         }
 
@@ -227,20 +232,45 @@ namespace Simon
             if (mySimon.estados[mySimon.posActual] == mySimon.estadoSolicitado)
             {
                 //discernir si es el ultimo o uno intermedio para agregar o recorrer
-                if (mySimon.posActual == mySimon.estados.Count() - 1) ArmarJuego(); //es el ultimo
-                else mySimon.posActual++; //coincide pero no es el ultimo
+                lblActual.Text = (mySimon.posActual + 1).ToString();
+
+                if (mySimon.posActual == mySimon.estados.Count() - 1)
+                {
+                    timerArmador.Start();
+                    //ArmarJuego(); //es el ultimo
+                }
+                else
+                {
+                    mySimon.posActual++; //coincide pero no es el ultimo
+                    
+                }
+               // lblActual.Text = mySimon.posActual.ToString();
             }
             else
             {
                 mySimon.Reiniciar();
+                lblActual.Text = "0";
+                lblTotal.Text = "0";
                 MessageBox.Show("Perdiste! Dale a reiniciar");
 
             }
 
 
         }
+
+        private void timerArmador_Tick(object sender, EventArgs e)
+        {
+            ArmarJuego();
+            lblActual.Text = "0";
+            timerArmador.Stop();
+        }
     }
 }
 //TODO:
-//IR RECORRIENDO EL ARRAY DE ESTADOS CON EL TIMER 2 PARA IR ILUMINANDO LAS TECLAS QUE CORRESPONDEN
-//LUEGO DE ESO EN REALIDAD IR GENERANDO Y AGREGANDO A MEDIDA QUE SE APRETAN LAS SECUENCIAS
+//MEJORAR TODO EN FUNCIONES O MÉTODOS DE LA CLASE JUEGO
+//AGREGAR PUNTAJE Y SONIDO DE ERROR
+//GUARDAR MAXIMOS PUNTAJES
+//AGREGAR NOMBRE DE USUARIO SI SE SUPERA EL MAX PUNTAJE
+//ALMACENAR EN LA NUBE DE MONGO, PARA QUE TODOS LOS USERS LO VEAN
+//INCRUSTAR SONIDOS AL PROYECTO
+//MEJORAR EL COLOREADO CON FUNCIONES O MÉTODOS

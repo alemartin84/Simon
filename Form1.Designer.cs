@@ -37,6 +37,11 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.timerApagador = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblActual = new System.Windows.Forms.Label();
+            this.timerArmador = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // buttonUp
@@ -108,11 +113,56 @@
             this.timerApagador.Interval = 500;
             this.timerApagador.Tick += new System.EventHandler(this.timerApagador_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(238, 177);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "LARGO TOTAL:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(238, 202);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "POS. ACTUAL: ";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(329, 177);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(13, 13);
+            this.lblTotal.TabIndex = 8;
+            this.lblTotal.Text = "0";
+            // 
+            // lblActual
+            // 
+            this.lblActual.AutoSize = true;
+            this.lblActual.Location = new System.Drawing.Point(327, 202);
+            this.lblActual.Name = "lblActual";
+            this.lblActual.Size = new System.Drawing.Size(13, 13);
+            this.lblActual.TabIndex = 9;
+            this.lblActual.Text = "0";
+            // 
+            // timerArmador
+            // 
+            this.timerArmador.Interval = 1500;
+            this.timerArmador.Tick += new System.EventHandler(this.timerArmador_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 399);
+            this.Controls.Add(this.lblActual);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonDown);
@@ -127,6 +177,7 @@
             this.Text = "C#imon";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -140,6 +191,11 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timerApagador;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblActual;
+        private System.Windows.Forms.Timer timerArmador;
     }
 }
 
